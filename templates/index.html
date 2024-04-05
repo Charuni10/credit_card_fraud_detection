@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fraud Detection</title>
+</head>
+<body>
+    <h1>Fraud Detection App</h1>
+    
+    <form action="/predict" method="post">
+        <!-- Input for date and time -->
+        <label for="datetime">Date </label>
+        <input type="datetime-local" name="datetime" required><br>
+        <label for="amount">Amount</label>
+        <input type="text" name="amount" required /><Br>
+        <!-- Other inputs -->
+        <label for="category">Category:</label>
+        <select name="category" required>
+            <option value="0">entertainment</option>
+            <option value="1">food & dining</option>
+            <option value="2">gas & transport</option>
+            <option value="3">grocery net</option>
+            <option value="4">grocery pos</option>
+            <option value="5">health & fitness</option>
+            <option value="6">home</option>
+            <option value="7">kids & pets</option>
+            <option value="8">misc net</option>
+            <option value="9">misc pos</option>
+            <option value="10">personal care</option>
+            <option value="11">shopping net</option>
+            <option value="12">shopping pos</option>
+            <option value="13">travel</option>
+        </select><br>
+
+        <!-- Dropdown for gender selection -->
+        <label for="gender">Gender:</label>
+        <select name="gender" required>
+            <option value="0">Female</option>
+            <option value="1">Male</option>
+        </select><br>
+
+        <!-- Additional inputs... -->
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
